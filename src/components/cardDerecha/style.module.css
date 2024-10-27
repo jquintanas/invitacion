@@ -1,7 +1,8 @@
 .container {
-  position: relative;
-  width   : 100%;
-  height  : 400px;
+  position    : relative;
+  width       : 100%;
+  height      : 400px;
+  padding-left: 10px;
 }
 
 .large-image-wrapper {

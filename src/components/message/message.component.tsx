@@ -1,4 +1,7 @@
 import { Fragment } from 'react';
+import styles from "./style.module.css";
+
+
 const MessageSegment = () => {
   //#region props
 
@@ -15,11 +18,15 @@ const MessageSegment = () => {
   //#region component
   return (
     <Fragment>
-      <div className="invitation-container">
-        <div className="overlay">
-          <div className="invitation-content">
-            <p className="small-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, perferendis!</p>
-            <h1 className="large-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, dignissimos?</h1>
+      <div className={styles["invitation-container"]}>
+        <div className={styles["overlay"]}>
+          <div className={styles["invitation-content"]}>
+            <p className={[styles["small-text"], "pacifico-regular"].join(" ")}>
+              Para armonizar con el ambiente, les pedimos que usen tonos pastel en sus atuendos.
+            </p>
+            <h1 className={[styles["large-text"], "pacifico-regular"].join(" ")}>
+              Queremos que estén cómodos y a la vez elegantes para disfrutar de la playa con estilo. ¡Gracias por ayudarnos a hacer de este evento algo especial!
+            </h1>
           </div>
         </div>
       </div>

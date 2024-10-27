@@ -1,0 +1,36 @@
+.center {
+  justify-content: center;
+  align-items    : center;
+  display        : flex;
+}
+
+.full {
+  max-height: 100% !important;
+}
+
+.icon {
+  width : 80px;
+  height: 80px;
+}
+
+.direction {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+}
+
+.hour {
+  color        : #6d7561;
+  font-size    : 3rem;
+  margin-top   : 10px;
+  margin-bottom: 10px;
+}
+
+.event {
+  color    : #555E53;
+  font-size: 1.3rem;
+}
+
+.container {
+  padding-top: 10px;
+}

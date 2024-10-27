@@ -3,97 +3,82 @@ import './App.css';
 import MessageSegment from "./components/message/message.component";
 // @ts-ignore
 import FlipCountdown from '@rumess/react-flip-countdown';
+import { Image, Modal } from 'antd';
+import { useCallback, useRef, useState } from "react";
 import CardPrincipalDerecha from "./components/cardDerecha/cardPrincipalDerecho.component";
 import CardPrincipal from "./components/cardPrincipal.component";
-
+import FechaComponent from "./components/fecha/fecha.component";
+import HorarioComponent from "./components/horario/horario.component";
 
 function App() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+
+  const playMusic = useCallback(() => {
+    setIsModalOpen(false);
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, [])
+
   return (
-    <Row>
-      <Col span={24} className="container-principal">
-        <Row className="row-container-principal">
-          <Col span={8} className="card-left">
-            <CardPrincipal />
-          </Col>
-          <Col span={8} className="text-principal">
-            <p className="frase lato-regular">Te invitamos a celebrar este gran momento para nosotros</p>
-            <p className="title pacifico-regular">Jonathan & Melany</p>
-          </Col>
-          <Col span={8} className="card-right">
-            <CardPrincipalDerecha />
-          </Col>
-        </Row>
-      </Col>
-      <Col span={24} className="container-fecha">
-        <Row>
-          <Col span={5}>
-          </Col>
-          <Col span={14}>
-            <Row>
-              <Col span={8}>
-                <h1 className="pacifico-regular date-title">Fecha</h1>
-                <p className="date-info lato-regular">Noviembre 23, Sábado</p>
-              </Col>
-              <Col span={8}>
-                <h1 className="pacifico-regular date-title">Hora</h1>
-                <p className="date-info lato-regular">Recepción 2PM</p>
-                <p className="date-info lato-regular">Ceremonia 5PM</p>
-              </Col>
-              <Col span={8}>
-                <h1 className="pacifico-regular date-title">Ubicación</h1>
-                <p className="date-info lato-regular">La Fogata Bungalows, Puerto López</p>
-              </Col>
-            </Row>
-          </Col>
-          <Col span={5}>
-          </Col>
-        </Row>
-      </Col>
-      <Col span={24}>
-        <Row>
-          <Col span={6}>
-            <div></div>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Cumque quisquam nulla impedit est.</p>
-          </Col>
-          <Col span={6}>
-            <div></div>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Cumque quisquam nulla impedit est.</p>
-          </Col>
-          <Col span={6}>
-            <div></div>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Cumque quisquam nulla impedit est.</p>
-          </Col>
-          <Col span={6}>
-            <div></div>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Cumque quisquam nulla impedit est.</p>
-          </Col>
-        </Row>
-      </Col>
-      <Col span={24}>
-        <FlipCountdown
-          theme='dark'
-          size='large'
-          endAt={new Date(
-            Date.now() +
-            1000 /* sec */ *
-            60 /* min */ *
-            60 /* hour */ *
-            24 /* day */ *
-            30 /* month */ *
-            12 /* year */ *
-            2
-          ).toUTCString()}
-        />
-      </Col>
-      <Col span={24}>
-        <MessageSegment />
-      </Col>
-      <Col span={24}></Col>
-    </Row>
+    <>
+      <Modal title="" open={isModalOpen} onOk={playMusic} onCancel={handleCancel} okText="SI" cancelText="No" >
+        <p>Quieres disfrutar de nuestra música.?</p>
+      </Modal>
+      <div className="fondoP"></div>
+      <Row className="fondo">
+        <Col span={24} className="container-principal">
+          <Row className="row-container-principal div-p">
+            <Col xs={{ span: 24 }} md={{ span: 8 }} className="card-left">
+              <CardPrincipal />
+            </Col>
+            <Col xs={{ span: 24 }} md={{ span: 8 }} className="text-principal">
+              <p className="frase lato-regular">Te invitamos a celebrar este gran momento para nosotros, nuestro matrimonio civil.</p>
+              <p className="title pacifico-regular">Jonathan & Melany</p>
+            </Col>
+            <Col xs={{ span: 24 }} md={{ span: 8 }} className="card-right">
+              <CardPrincipalDerecha />
+            </Col>
+          </Row>
+        </Col>
+        <Col span={24} className="container-fecha">
+          <FechaComponent />
+        </Col>
+        <Col span={24} className="container-horario">
+          <HorarioComponent />
+        </Col>
+        <Col span={24} className="container-countdown">
+          <FlipCountdown
+            theme='dark'
+            size='medium'
+            endAt={new Date(2024, 10, 23, 14, 0, 0, 0).toUTCString()}
+            hideYear={true}
+            hideMonth={true}
+          />
+        </Col>
+        <Col span={24} className="container-message">
+          <MessageSegment />
+        </Col>
+        <Col span={24} className="container-dress center">
+          <Image
+            className="img"
+            src="/dresscode.jpg"
+          />
+        </Col>
+        <Col span={24} style={{ display: "none" }}>
+          <audio controls={true} ref={audioRef}>
+            <source src="/destinoocasualidad.mp3" type="audio/ogg" />
+            Your browser does not support the audio element.
+          </audio>
+        </Col>
+      </Row>
+    </>
   );
 }
 

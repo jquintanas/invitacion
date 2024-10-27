@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
-  width: 80%;
+  width: 90%;
   height: 400px;
+  top: -40px;
 `;
 
 const ImageLarge = styled.img`

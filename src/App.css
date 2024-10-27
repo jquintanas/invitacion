@@ -14,12 +14,24 @@
   display        : flex;
   justify-content: center;
   align-items    : center;
+  min-height     : 400px;
+  max-height     : 100%;
+}
+
+.card-left-300 {
+  height: 300px;
+}
+
+.card-left-full {
+  height: 100%;
 }
 
 .card-right {
   display        : flex;
   justify-content: center;
   align-items    : center;
+  min-height     : 400px;
+  max-height     : 100%;
 }
 
 .text-principal {
@@ -27,7 +39,8 @@
   justify-content: center;
   align-items    : center;
   flex-direction : column;
-  height         : 100vh;
+  max-height     : 100vh;
+  min-height     : 300px;
 }
 
 .frase {
@@ -36,7 +49,8 @@
   word-break : keep-all;
   width      : 100%;
   margin-top : 0px !important;
-  color      : #656C64
+  color      : #656C64;
+  text-align : center;
 }
 
 .title {
@@ -46,6 +60,7 @@
   margin-left: -5vw;
   width      : 100%;
   margin     : 0px !important;
+  text-align : center;
 }
 
 .container-fecha {
@@ -53,90 +68,64 @@
   background-color: #656C64;
 }
 
-.date-title {
-  color: #A7B3A3;
+.container-horario {
+  min-height      : 50vh;
+  background-color: #FCFBFD;
 }
 
-.date-info {
-  color: #FFFFFF;
+.container-countdown {
+  height: 50vh;
+  background: linear-gradient(rgba(248, 246, 250, 0.14), rgba(248, 246, 250, 0.14)),
+    url("./assets/img/fondo2.jpg") center center / cover no-repeat;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
 }
 
+.container-message {
+  height          : 100vh;
+  background-color: transparent;
+  justify-content : center;
+  display         : flex;
+  align-items     : center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.invitation-container {
-  background-image   : url("https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg");
-  /* Reemplaza con tu imagen de fondo */
-  background-size    : cover;
+.fondoP {
+  background-image   : url("./assets/img/fondo3.jpg");
   background-position: center;
-  position           : relative;
-  width              : 100%;
-  height             : 400px;
-  /* Ajusta según sea necesario */
-  display            : flex;
-  align-items        : center;
-  justify-content    : center;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+  z-index            : 0;
+  position           : fixed;
+  top                : 0;
+  left               : 0;
+  width              : 100vw;
+  height             : 100vh;
 }
 
-.overlay {
-  background-color: rgba(44, 62, 80, 0.8);
-  /* Color del fondo oscuro */
-  padding         : 40px 20px;
-  border-radius   : 20px;
-  position        : relative;
-  max-width       : 900px;
-  text-align      : center;
-  color           : #fff;
-  font-family     : 'Cursive', sans-serif;
+.fondo {
+  z-index         : 2;
+  background-color: transparent;
 }
 
-.overlay::before,
-.overlay::after {
-  content      : "";
-  position     : absolute;
-  top          : 0;
-  left         : 0;
-  width        : 100%;
-  height       : 100%;
-  background   : inherit;
-  z-index      : -1;
-  clip-path    : polygon(1% 10%, 12% 2%, 25% 10%, 33% 4%, 41% 7%, 53% 1%, 64% 59%, 68% 7%, 68% 1%, 76% 9%, 80% 3%, 88% 12%, 91% 4%, 92% 18%, 95% 26%, 91% 30%, 82% 36%, 92% 41%, 97% 48%, 92% 50%, 90% 56%, 94% 59%, 96% 64%, 93% 64%, 91% 66%, 88% 70%, 88% 70%, 90% 71%, 92% 73%, 97% 81%, 94% 81%, 85% 81%, 77% 82%, 79% 89%, 79% 93%, 69% 97%, 64% 93%, 61% 96%, 52% 100%, 54% 95%, 48% 87%, 41% 93%, 33% 99%, 28% 100%, 27% 99%, 28% 91%, 19% 94%, 13% 94%, 13% 94%, 10% 80%, 4% 85%, 6% 78%, 7% 63%, 0% 59%, 0% 55%, 0% 51%, 0% 34%, 6% 41%, 2% 43%, 2% 42%, 1% 35%, 0% 28%, 0% 28%, 1% 23%, 0% 22%);
-  /* clip-path : polygon(0% 0%, 100% 5%, 100% 95%, 0% 100%); */
+.container-dress {
+  height          : 100vh;
+  background-image: url("./assets/img/fondo2.jpg");
 }
 
-.overlay::after {
-  /* clip-path: polygon(0% 3%, 100% 0%, 100% 95%, 0% 97%); */
+.center {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
 }
 
-.invitation-content {
-  position: relative;
-  z-index : 2;
+.img {
+  width: 80%;
 }
 
-.small-text {
-  font-size    : 16px;
-  font-family  : 'Cursive', sans-serif;
-  color        : #c0c0c0;
-  margin-bottom: 20px;
-}
-
-.large-text {
-  font-size  : 32px;
-  font-weight: bold;
-  color      : white;
-  font-family: 'Cursive', sans-serif;
+.div-p {
+  overflow-y     : scroll;
+  width          : 100%;
+  height         : 100%;
+  scrollbar-width: none;
 }
