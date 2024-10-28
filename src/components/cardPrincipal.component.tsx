@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import baseUrl from './../const';
 
 const Container = styled.div`
   position: relative;
@@ -41,9 +42,9 @@ const CardPrincipal = () => {
   //#region component
   return (
     <Container>
-      <ImageSmallTop src="/cardIzqPrincipal2.jpg" alt="Small Image Top" />
-      <ImageLarge src="/cardDerPrincipal22.jpg" alt="Large Center Image" />
-      <ImageSmallBottom src="/cardIzqPrincipal3.jpg" alt="Small Image Bottom" />
+      <ImageSmallTop src={`${baseUrl}cardIzqPrincipal2.jpg`} alt="Small Image Top" />
+      <ImageLarge src={`${baseUrl}cardDerPrincipal22.jpg`} alt="Large Center Image" />
+      <ImageSmallBottom src={`${baseUrl}cardIzqPrincipal3.jpg`} alt="Small Image Bottom" />
     </Container>
   );
   //#endegion

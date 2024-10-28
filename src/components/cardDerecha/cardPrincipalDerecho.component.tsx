@@ -1,3 +1,4 @@
+import baseUrl from './../../const';
 import style from './style.module.css';
 const CardPrincipalDerecha = () => {
   //#region component
@@ -5,14 +6,14 @@ const CardPrincipalDerecha = () => {
     <div className={style.container}>
       <div className={style["large-image-wrapper"]}>
         <img
-          src="/cardDerPrincipal.jpg"
+          src={`${baseUrl}cardDerPrincipal.jpg`}
           alt="Large"
           className={style["large-image"]}
         />
       </div>
       <div className={style["small-image-wrapper"]}>
         <img
-          src="/cardDerPrincipal21.jpg"
+          src={`${baseUrl}cardDerPrincipal21.jpg`}
           alt="Small"
           className={style["small-image"]}
         />

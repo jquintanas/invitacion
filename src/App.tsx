@@ -5,10 +5,13 @@ import MessageSegment from "./components/message/message.component";
 import FlipCountdown from '@rumess/react-flip-countdown';
 import { Image, Modal } from 'antd';
 import { useCallback, useRef, useState } from "react";
+import ReactPlayer from 'react-player';
 import CardPrincipalDerecha from "./components/cardDerecha/cardPrincipalDerecho.component";
 import CardPrincipal from "./components/cardPrincipal.component";
 import FechaComponent from "./components/fecha/fecha.component";
 import HorarioComponent from "./components/horario/horario.component";
+import baseUrl from "./const";
+
 
 function App() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -28,7 +31,8 @@ function App() {
 
   return (
     <>
-      <Modal title="" open={isModalOpen} onOk={playMusic} onCancel={handleCancel} okText="SI" cancelText="No" >
+      <Modal mask={true} title="" open={isModalOpen} onOk={playMusic} onCancel={handleCancel} okText="SI" cancelText="No" >
+        <ReactPlayer width={"100%"} url={`${baseUrl}intro.mp4`} />
         <p>Quieres disfrutar de nuestra música.?</p>
       </Modal>
       <div className="fondoP"></div>
@@ -68,12 +72,12 @@ function App() {
         <Col span={24} className="container-dress center">
           <Image
             className="img"
-            src="/dresscode.jpg"
+            src={`${baseUrl}dresscode.jpg`}
           />
         </Col>
         <Col span={24} style={{ display: "none" }}>
           <audio controls={true} ref={audioRef}>
-            <source src="/destinoocasualidad.mp3" type="audio/ogg" />
+            <source src={`${baseUrl}destinoocasualidad.mp3`} type="audio/ogg" />
             Your browser does not support the audio element.
           </audio>
         </Col>
